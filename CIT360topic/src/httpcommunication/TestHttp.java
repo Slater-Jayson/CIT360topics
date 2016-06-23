@@ -1,7 +1,6 @@
 package httpcommunication;
 
 import java.io.IOException;
-import java.net.URLConnection;
 
 public class TestHttp {
 

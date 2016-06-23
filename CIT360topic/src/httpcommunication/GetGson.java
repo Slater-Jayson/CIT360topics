@@ -5,11 +5,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
 import com.google.gson.JsonParser;
 
 public class GetGson {
@@ -29,5 +30,16 @@ public class GetGson {
     JsonObject rootobj = root.getAsJsonObject(); //root or object. 
     ip = rootobj.get("ip").getAsString(); //grab ip
 	System.out.println(ip);
-}
+	}
+	 public void toJSONObject() {
+	     try {
+	         JsonObject result = new JsonObject();
+	        
+	     } catch (JsonParseException e) {
+	         throw new RuntimeException(e);
+	     }
+	 }
+	
+	
+
 }

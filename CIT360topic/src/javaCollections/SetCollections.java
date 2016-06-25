@@ -1,9 +1,33 @@
 package javaCollections;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import java.util.*;
+
+import org.junit.Before;
+import org.junit.Test;
 
 public class SetCollections {
 
+	
+	@Test
+    public void setUp() {
+        HashSet set1 = new HashSet();
+        set1.add("one");
+        HashSet set2 = new HashSet();
+        set2.add("two");
+        
+        assertTrue(set1.contains("black"));
+        assertFalse(set2.contains("gold"));
+        
+    }
+	
+
+   
+
+	
 	public static void main(String args[]) {
+		
 		HashSet myset = new HashSet();
 		myset.add("3");
 		myset.add("6");
@@ -13,6 +37,7 @@ public class SetCollections {
 		myset.add("2");
 		myset.add("1");
 		System.out.println(myset);
+		
 		
 		HashSet myset2 = new HashSet();
 		myset2.add("Microsoft");

@@ -24,6 +24,8 @@ public class CrewController {
 	   public String getCrewMemberRoll(){
 	      return model.getRoll();		
 	   }
+	   
+	   
 
 	   public void updateView(){				
 	      view.printCrewDetails(model.getName(), model.getRoll());

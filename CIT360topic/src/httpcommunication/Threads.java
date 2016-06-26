@@ -14,14 +14,13 @@ public class Threads {
      ExecutorService executor = Executors.newCachedThreadPool();
 
      // create thread
-     FutureTask task = new FutureTask(new SomeThread(false));
+     FutureTask task = new FutureTask(new ExampleThread(false));
      executor.submit(task); 
      executor.shutdown();
 
      try {
          
          executor.awaitTermination(3, TimeUnit.SECONDS);
-        
          System.out.println("returns: " + task.get());
      } catch (InterruptedException e) {
          e.printStackTrace();
@@ -30,10 +29,10 @@ public class Threads {
      }
 
      executor = Executors.newCachedThreadPool();
-     task = new FutureTask(new SomeThread(true));
+     task = new FutureTask(new ExampleThread(true));
      executor.submit(task);
-
      executor.shutdown();
+     
      try {
          executor.awaitTermination(3, TimeUnit.SECONDS);
          
@@ -45,11 +44,11 @@ public class Threads {
      }
  } 
 
- static class SomeThread implements Callable {
-     boolean throwError = false;
+ static class ExampleThread implements Callable {
+     boolean error = false;
 
-     public SomeThread(boolean throwError) {
-         this.throwError = throwError;
+     public ExampleThread(boolean error) {
+         this.error = error;
      }
 
      @Override
@@ -58,7 +57,7 @@ public class Threads {
          Thread.sleep(2000);
          System.out.println("done");
 
-         if (throwError) {
+         if (error) {
              throw new Exception("boom, exception");
          }
 

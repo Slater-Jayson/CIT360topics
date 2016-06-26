@@ -17,17 +17,17 @@ public class CrewController {
 	      return model.getName();		
 	   }
 
-	   public void setCrewMemberRoll(String roll){
-	      model.setRoll(roll);		
+	   public void setCrewMemberDuty(String duty){
+	      model.setDuty(duty);		
 	   }
 
-	   public String getCrewMemberRoll(){
-	      return model.getRoll();		
+	   public String getCrewMemberDuty(){
+	      return model.getDuty();		
 	   }
 	   
 	   
 
 	   public void updateView(){				
-	      view.printCrewDetails(model.getName(), model.getRoll());
+	      view.printCrewDetails(model.getName(), model.getDuty());
 	   }	
 	}

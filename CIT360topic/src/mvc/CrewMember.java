@@ -1,15 +1,15 @@
 package mvc;
 
 public class CrewMember {
-	   private String roll;
+	   private String duty;
 	   private String name;
 	   
-	   public String getRoll() {
-	      return roll;
+	   public String getDuty() {
+	      return duty;
 	   }
 	   
-	   public void setRoll(String roll) {
-	      this.roll = roll;
+	   public void setDuty(String duty) {
+	      this.duty = duty;
 	   }
 	  
 	   

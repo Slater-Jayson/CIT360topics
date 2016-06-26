@@ -15,14 +15,14 @@ public class putogethermvc {
 
 	      //updating model
 	      controller.setCrewMemberName("Spock");
-	      controller.setCrewMemberRoll("1st Lieutenant");
+	      controller.setCrewMemberDuty("1st Lieutenant");
 	      controller.updateView();
 	   }
 
 	   private static CrewMember retriveCrewMemberFromDatabase(){
 	      CrewMember crewmember = new CrewMember();
 	      crewmember.setName("James T. Kirk");
-	      crewmember.setRoll("Captain");
+	      crewmember.setDuty("Captain");
 	      
 	      return crewmember;
 	   }

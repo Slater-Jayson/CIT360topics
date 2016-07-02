@@ -1,35 +1,31 @@
 package clientSocket;
 
-//File Name GreetingClient.java
-
 import java.net.*;
 import java.io.*;
 
-public class Client
-{
-public static void main(String [] args)
-{
-   String serverName = args[0];
-   int port = Integer.parseInt(args[1]);
-   try
-   {
-      System.out.println("Connecting to " + serverName +
-		 " on port " + port);
-      Socket client = new Socket(serverName, port);
-      System.out.println("Just connected to " 
-		 + client.getRemoteSocketAddress());
-      OutputStream outToServer = client.getOutputStream();
-      DataOutputStream out = new DataOutputStream(outToServer);
-      out.writeUTF("Hello from "
-                   + client.getLocalSocketAddress());
-      InputStream inFromServer = client.getInputStream();
-      DataInputStream in =
-                     new DataInputStream(inFromServer);
-      System.out.println("Server says " + in.readUTF());
-      client.close();
-   }catch(IOException e)
-   {
-      e.printStackTrace();
-   }
+
+public class Client {
+	public static void main (String [] args) {
+		
+		try{
+			Socket s = new Socket ("127.0.0.1", 9999);
+			DataInputStream dstreamin = new DataInputStream(s.getInputStream());
+			DataOutputStream dstreamout = new DataOutputStream(s.getOutputStream());
+			
+			BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
+			String receive="",send="";
+			while(!receive.equals("end")){
+				send = buffer.readLine();
+				dstreamout.writeUTF(send);;
+				receive = dstreamin.readUTF();
+				
+				System.out.println(receive);
+			}
+			
+		}
+		catch(Exception x){
+			
+		}
+	}
 }
-}
+
